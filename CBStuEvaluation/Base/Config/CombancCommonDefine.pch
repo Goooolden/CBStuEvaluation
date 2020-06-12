@@ -1,0 +1,73 @@
+//
+//  CombancCommonDefine.pch
+//  CombancClassAttendance
+//
+//  Created by Mac on 2018/9/18.
+//  Copyright © 2018年 Mac. All rights reserved.
+//
+
+#ifndef CombancCommonDefine_pch
+#define CombancCommonDefine_pch
+#endif /* CombancCommonDefine_pch */
+#import "Masonry.h"
+#import "UILabel+Extension.h"
+#import "UIColor+RCColor.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIView+Extension.h"
+#import "LCProgressHUD.h"
+#import "GCD.h"
+#import "HTTPTool.h"
+#import "RequestApiConfig.h"
+#import "BaseHandler.h"
+#import "MJExtension.h"
+#import "UIView+PromptWords.h"
+
+/**尺寸以及手机类型判断 */
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define IS_IPHONE_4 (SCREEN_MAX_LENGTH == 480.0)
+#define IS_IPHONE_5_OR_LESS (SCREEN_MAX_LENGTH <= 568.0)
+#define IS_IPHONE_6_OR_MORE (SCREEN_MAX_LENGTH >= 667.0)
+#define IS_IPHONE_5 (SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6_OR_7   (SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P_OR_7R (SCREEN_MAX_LENGTH == 736.0)
+#define IS_IPHONE_X (SCREEN_MAX_LENGTH > 736.0)
+
+/**ios版本判断 */
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
+#define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
+#define iOS10Later ([UIDevice currentDevice].systemVersion.floatValue >= 10.0f)
+#define iOS11Later ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
+#define iOS8_10 ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f && [UIDevice currentDevice].systemVersion.floatValue <= 10.0f)
+
+
+
+/** 屏幕比例,相对于6 */
+#define WIDTH_RATIO         (CGRectGetWidth([[UIScreen mainScreen] bounds]) / 375.0)
+#define HEIGHT_RATIO        (CGRectGetHeight([[UIScreen mainScreen] bounds]) / 667.0)
+
+/** 导航以及Tabbar高度 */
+#define kNaviHeight         (IS_IPHONE_X?88:64)
+#define kTabbarHeight       (IS_IPHONE_X?83:49)
+
+/** 自动宽高 */
+#define kAutoWidth(width)   WIDTH_RATIO*width
+#define kAutoHeight(height) HEIGHT_RATIO*height
+
+#define kAutoFont(font)     WIDTH_RATIO*font
+/** 颜色 */
+#define RGBA(r,g,b,a)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]        //颜色
+
+#define RGB16(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
+/** 圆角 */
+#define radius 6
+
+/** 字体 */
+
+#define RegularFont(a)  [UIFont fontWithName:@"PingFang-SC-Regular" size:a];
+#define MediumFont(a)  [UIFont fontWithName:@"PingFang-SC-Medium" size:a];
+#define BoldFont(a)  [UIFont fontWithName:@"PingFang-SC-Semibold" size:a];
